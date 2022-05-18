@@ -1,0 +1,29 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "backend",
+  "main": "index.js",
+  "author": "Delano Cooper",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "generate-types": "typechain --target=truffle-v5 './build/contracts/*.json'",
+    "generate-types-client": "typechain --target=web3-v1 './build/contracts/*.json'",
+    "postinstall": "truffle compile && yarn generate-types && yarn generate-types-client",
+    "coverage": "truffle run coverage",
+    "migrate": "tsc -p ./tsconfig.migrate.json --outDir migrations && truffle migrate"
+  },
+  "devDependencies": {
+    "@typechain/truffle-v5": "^8.0.0",
+    "@typechain/web3-v1": "^6.0.0",
+    "@types/bn.js": "^5.1.0",
+    "@types/chai": "^4.3.1",
+    "@types/mocha": "^9.1.1",
+    "@types/web3": "^1.2.2",
+    "ganache-cli": "6.12.2",
+    "solidity-coverage": "^0.7.21",
+    "truffle-typings": "^1.0.8",
+    "typechain": "^8.0.0",
+    "typescript": "^4.6.4"
+  }
+}
